@@ -1,5 +1,10 @@
 <?php
     include 'dados.php';
+    
+    function compara($a, $b){
+        return $a['nome'] > $b['nome'];
+    }
+    usort($dados, 'compara');
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +28,7 @@
         </ul>
         <div class="jumbotron">
             <p class="h1 text-center">Manipulação de arrays em PHP</p>
-            <p class="p text-center">Exibindo todos os dados cadastrados.</p>
+            <p class="p text-center">Exibindo todos os dados em ordem alfabética (crescente).</p>
         </div>
         <div class="container">
             <table class="table table-striped">

@@ -1,5 +1,16 @@
 <?php
     include 'dados.php';
+    
+    function filtro($ar){
+        $resultado = array(); //nao entendi
+        foreach($ar as $a){
+            if($a['musica'] != 'rock'){
+                $resultado[]=$a;
+            }
+        }
+        return $resultado;
+    }
+    $rock = filtro($dados);
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +34,7 @@
         </ul>
         <div class="jumbotron">
             <p class="h1 text-center">Manipulação de arrays em PHP</p>
-            <p class="p text-center">Exibindo todos os dados cadastrados.</p>
+            <p class="p text-center">Exibindo todos os dados em ordem alfabética (crescente).</p>
         </div>
         <div class="container">
             <table class="table table-striped">
@@ -34,7 +45,7 @@
                         <th scope='col'>Gênero musical</th>
                     </tr>
                 </thead>
-                <?php foreach($dados as $linhya => $item):?>
+                <?php foreach($rock as $linha => $item):?>
                     <tr>
                         <th scope="row"><?php echo $item['nome'] ?></th>   <!-- O que é scope=row?? -->
                         <td><?php echo $item['idade']?></td>
